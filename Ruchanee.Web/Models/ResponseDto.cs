@@ -1,4 +1,4 @@
-﻿namespace Ruchanee.Web.Models    
+﻿namespace Ruchanee.Services.ProductAPI.Models.Dtos
 {
     public class ResponseDto
     {
