@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Ruchanee.Services.ProductAPI.Models.Dtos;
 using Ruchanee.Services.ProductAPI.Repositories;
+using Ruchanee.Web.Models;
 
 namespace Ruchanee.Services.ProductAPI.Controllers
 {
