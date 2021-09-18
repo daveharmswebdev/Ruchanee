@@ -60,6 +60,8 @@ namespace Ruchanee.Web.Services
                 var dto = new ResponseDto
                 {
                     DisplayMessage = "Error",
+
+
                     ErrorMessages = new List<string>() { Convert.ToString(ex.Message) },
                     IsSuccess = false
                 };
