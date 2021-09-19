@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Ruchanee.Services.Idenity;
 using Ruchanee.Services.Idenity.DbContexts;
+using Ruchanee.Services.Idenity.Initializer;
 using Ruchanee.Services.Idenity.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -26,6 +27,7 @@ builder.Services.AddIdentityServer(options =>
 .AddAspNetIdentity<ApplicationUser>()
 .AddDeveloperSigningCredential();
 
+builder.Services.AddScoped<IDBInitializer, DBInitializer>();
 
 builder.Services.AddControllersWithViews();
 
@@ -46,8 +48,19 @@ app.UseRouting();
 app.UseIdentityServer();
 app.UseAuthorization();
 
+SeedDatabase();
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
+void SeedDatabase()
+{
+    var context = app.Services.CreateScope().ServiceProvider.GetService<ApplicationDbContext>();
+    var userManager = app.Services.CreateScope().ServiceProvider.GetService<UserManager<ApplicationUser>>();
+    var roleManager = app.Services.CreateScope().ServiceProvider.GetService<RoleManager<IdentityRole>>();
+    var dbInitializer = new DBInitializer(context, userManager, roleManager);
+    dbInitializer.Initialize();
+}
