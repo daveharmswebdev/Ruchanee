@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Ruchanee.Services.ProductAPI.Models.Dtos;
 using Ruchanee.Services.ProductAPI.Repositories;
 using Ruchanee.Web.Models;
@@ -18,6 +19,7 @@ namespace Ruchanee.Services.ProductAPI.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<object> Get()
         {
             try
@@ -36,6 +38,7 @@ namespace Ruchanee.Services.ProductAPI.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         [Route("{id}")]
         public async Task<object> GetById(int id)
         {
@@ -62,6 +65,7 @@ namespace Ruchanee.Services.ProductAPI.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<object> CreateProduct([FromBody] ProductDto productDto)
         {
             try
@@ -79,6 +83,7 @@ namespace Ruchanee.Services.ProductAPI.Controllers
         }
 
         [HttpPut]
+        [Authorize]
         public async Task<object> UpdateProduct([FromBody] ProductDto productDto)
         {
             try
@@ -96,6 +101,7 @@ namespace Ruchanee.Services.ProductAPI.Controllers
         }
 
         [HttpDelete]
+        [Authorize(Roles = "Admin")]
         [Route("{id}")]
         public async Task<object> DeleteProduct(int id)
         {
