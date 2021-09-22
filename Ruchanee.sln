@@ -16,7 +16,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ruchanee.Services.Idenity", "Ruchanee.Services.Idenity\Ruchanee.Services.Idenity.csproj", "{E57354F6-99EE-4F1E-AEB6-69ABB68581B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ruchanee.Services.Idenity", "Ruchanee.Services.Idenity\Ruchanee.Services.Idenity.csproj", "{E57354F6-99EE-4F1E-AEB6-69ABB68581B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ruchanee.Services.ShoppingCartAPI", "Ruchanee.Services.ShoppingCartAPI\Ruchanee.Services.ShoppingCartAPI.csproj", "{F22BD95C-9CBE-477C-9D89-44423B914D40}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,6 +38,10 @@ Global
 		{E57354F6-99EE-4F1E-AEB6-69ABB68581B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E57354F6-99EE-4F1E-AEB6-69ABB68581B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E57354F6-99EE-4F1E-AEB6-69ABB68581B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F22BD95C-9CBE-477C-9D89-44423B914D40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F22BD95C-9CBE-477C-9D89-44423B914D40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F22BD95C-9CBE-477C-9D89-44423B914D40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F22BD95C-9CBE-477C-9D89-44423B914D40}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,6 +50,7 @@ Global
 		{F2B4BCB2-57A2-4AE7-8D02-386F64BD98C8} = {BE639F8F-8EFE-41B8-B13B-87E9401D145A}
 		{F06C4945-EB20-4D6A-B245-0C87249DBD0C} = {C1C7C143-A917-4485-AEE2-417F4C747F55}
 		{E57354F6-99EE-4F1E-AEB6-69ABB68581B7} = {C1C7C143-A917-4485-AEE2-417F4C747F55}
+		{F22BD95C-9CBE-477C-9D89-44423B914D40} = {C1C7C143-A917-4485-AEE2-417F4C747F55}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CA52DDE5-19E0-4EFB-B0AC-89C4ED74101A}
