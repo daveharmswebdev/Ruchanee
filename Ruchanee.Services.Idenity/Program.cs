@@ -1,9 +1,11 @@
+using Duende.IdentityServer.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Ruchanee.Services.Idenity;
 using Ruchanee.Services.Idenity.DbContexts;
 using Ruchanee.Services.Idenity.Initializer;
 using Ruchanee.Services.Idenity.Models;
+using Ruchanee.Services.Idenity.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,7 +30,7 @@ builder.Services.AddIdentityServer(options =>
 .AddDeveloperSigningCredential();
 
 builder.Services.AddScoped<IDBInitializer, DBInitializer>();
-
+builder.Services.AddScoped<IProfileService, ProfileService>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
