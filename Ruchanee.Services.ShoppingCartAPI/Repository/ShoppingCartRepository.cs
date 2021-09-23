@@ -19,7 +19,15 @@ namespace Ruchanee.Services.ShoppingCartAPI.Repository
 
         public async Task<bool> ClearCart(string userId)
         {
-            throw new NotImplementedException();
+            var cartHeaderFromDb = await _db.CartHeaders.FirstOrDefaultAsync(u => u.UserId == userId);
+            if (cartHeaderFromDb != null)
+            {
+                _db.CartDetails.RemoveRange(_db.CartDetails.Where(cd => cd.CartHeaderId == cartHeaderFromDb.CartHeaderId));
+                _db.CartHeaders.Remove(cartHeaderFromDb);
+                _db.SaveChanges();
+                return true;
+            }
+            return false;
         }
 
         public async Task<CartDto> CreateUpdateCart(CartDto cartDto)
@@ -76,12 +84,40 @@ namespace Ruchanee.Services.ShoppingCartAPI.Repository
 
         public async Task<CartDto> GetCartBuUserId(string userId)
         {
-            throw new NotImplementedException();
+            Cart cart = new Cart()
+            {
+                CartHeader = await _db.CartHeaders.FirstOrDefaultAsync(u => u.UserId == userId),
+            };
+            cart.CartDetails = _db.CartDetails.Where(cd => cd.CartHeaderId == cart.CartHeader.CartHeaderId).Include(x => x.Product);
+            return _mapper.Map<CartDto>(cart);
         }
 
         public async Task<bool> RemoveFromCart(int cartDetailsId)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var cartDetails = await _db.CartDetails
+                .FirstOrDefaultAsync(u => u.CartDetailsId == cartDetailsId);
+
+                var cartDetailsCount = _db.CartDetails.Where(cd => cartDetails.CartHeaderId == cartDetails.CartHeaderId).Count();
+
+                _db.CartDetails.Remove(cartDetails);
+
+                if (cartDetailsCount == 1)
+                {
+                    var cartHeader = await _db.CartHeaders.FirstOrDefaultAsync(header => header.CartHeaderId == cartDetails.CartHeaderId);
+                    _db.CartHeaders.Remove(cartHeader);
+                }
+
+                await _db.SaveChangesAsync();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            
         }
     }
 }
