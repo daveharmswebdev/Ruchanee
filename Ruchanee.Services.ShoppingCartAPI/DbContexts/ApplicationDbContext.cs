@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Ruchanee.Services.ShoppingCartAPI.Models;
 
 namespace Ruchanee.Services.ShoppingCartAPI.DbContexts
 {
@@ -9,7 +10,9 @@ namespace Ruchanee.Services.ShoppingCartAPI.DbContexts
 
         }
 
-        //public DbSet<Product> Products { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<CartHeader> CartHeaders { get; set; }
+        public DbSet<CartDetails> CartDetails { get; set; }
 
 
     }
