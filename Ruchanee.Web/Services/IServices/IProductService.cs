@@ -2,7 +2,7 @@
 
 namespace Ruchanee.Web.Services.IServices
 {
-    public interface IProductService
+    public interface IShoppingCartService
     {
         Task<T> GetAllProductsAsync<T>(string token);
         Task<T> GetProductByIdAsync<T>(int id, string token);

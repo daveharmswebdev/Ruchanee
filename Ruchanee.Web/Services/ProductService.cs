@@ -4,7 +4,7 @@ using static Ruchanee.Web.SD;
 
 namespace Ruchanee.Web.Services
 {
-    public class ProductService : BaseService, IProductService
+    public class ProductService : BaseService, IShoppingCartService
     {
         private readonly IHttpClientFactory _clientFactory;
         public ProductService(IHttpClientFactory clientFactory) : base(clientFactory)

@@ -10,8 +10,8 @@ namespace Ruchanee.Web.Controllers
 {
     public class ProductController : Controller
     {
-        private readonly IProductService _productService;
-        public ProductController(IProductService productService)
+        private readonly IShoppingCartService _productService;
+        public ProductController(IShoppingCartService productService)
         {
             _productService = productService;
         }
