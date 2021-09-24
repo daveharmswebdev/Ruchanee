@@ -1,4 +1,4 @@
-﻿namespace Ruchanee.Services.ProductAPI.Models.Dtos
+﻿namespace Ruchanee.Services.ShoppingCartAPI.Models.Dtos
 {
     public class ResponseDto
     {

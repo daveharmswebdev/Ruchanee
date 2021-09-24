@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Ruchanee.Services.ShoppingCartAPI.Models;
+using Ruchanee.Services.ShoppingCartAPI.Models.Dtos;
 
 namespace Ruchanee.Services.ShoppingCartAPI
 {
@@ -6,7 +8,14 @@ namespace Ruchanee.Services.ShoppingCartAPI
     {
         public static MapperConfiguration RegisterMaps()
         {
-            var mappingConfig = new MapperConfiguration(config => { });
+            var mappingConfig = new MapperConfiguration(config => 
+            {
+                config.CreateMap<ProductDto, Product>().ReverseMap();
+                config.CreateMap<CartHeader, CartHeaderDto>().ReverseMap();
+                config.CreateMap<CartDetails, CartDetailsDto>().ReverseMap();
+                config.CreateMap<Cart, CartDto>().ReverseMap();
+
+            });
 
             return mappingConfig;
         }
