@@ -12,9 +12,9 @@ namespace Ruchanee.Web.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IProductService _productService;
+        private readonly IShoppingCartService _productService;
 
-        public HomeController(ILogger<HomeController> logger, IProductService productService)
+        public HomeController(ILogger<HomeController> logger, IShoppingCartService productService)
         {
             _logger = logger;
             _productService = productService;
