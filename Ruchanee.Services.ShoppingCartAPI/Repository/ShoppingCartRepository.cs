@@ -82,7 +82,7 @@ namespace Ruchanee.Services.ShoppingCartAPI.Repository
             return _mapper.Map<CartDto>(cart);
         }
 
-        public async Task<CartDto> GetCartBuUserId(string userId)
+        public async Task<CartDto> GetCartByUserId(string userId)
         {
             Cart cart = new Cart()
             {
@@ -97,7 +97,7 @@ namespace Ruchanee.Services.ShoppingCartAPI.Repository
             try
             {
                 var cartDetails = await _db.CartDetails
-                .FirstOrDefaultAsync(u => u.CartDetailsId == cartDetailsId);
+                    .FirstOrDefaultAsync(u => u.CartDetailsId == cartDetailsId);
 
                 var cartDetailsCount = _db.CartDetails.Where(cd => cartDetails.CartHeaderId == cartDetails.CartHeaderId).Count();
 

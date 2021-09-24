@@ -4,6 +4,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Ruchanee.Services.ShoppingCartAPI;
 using Ruchanee.Services.ShoppingCartAPI.DbContexts;
+using Ruchanee.Services.ShoppingCartAPI.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,8 +15,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
 IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
 builder.Services.AddSingleton(mapper);
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-//builder.Services.AddScoped<IProductRepository, ProductRepository>();
-
+builder.Services.AddScoped<IShoppingCartRepository, ShoppingCartRepository>();
 builder.Services.AddControllers();
 
 builder.Services.AddAuthentication("Bearer")
